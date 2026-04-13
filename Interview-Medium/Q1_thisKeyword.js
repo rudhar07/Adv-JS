@@ -29,4 +29,39 @@
 
 //============solution================
 
+const user = {
+    name: "Alice",
+    greet: function () {
+        console.log(this.name);
+
+        const innerGreet = () => {
+            console.log(this.name); // 🔥 lexical this
+        };
+
+        innerGreet();
+    }
+};
+
+user.greet();
+
+
+//============solution - 2================
+
+
+// const user = {
+//   name: "Alice",
+//   greet: function () {
+//     console.log(this.name);
+
+//     const self = this; // 🔥 store this
+
+//     function innerGreet() {
+//       console.log(self.name); // use self
+//     }
+
+//     innerGreet();
+//   }
+// };
+
+// user.greet();
 
