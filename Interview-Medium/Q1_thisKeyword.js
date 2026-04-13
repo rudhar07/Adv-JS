@@ -44,6 +44,10 @@ const user = {
 
 user.greet();
 
+// Why it works?
+// self = user (captured in closure)
+// 👉 inner function uses closure, not its own this
+
 
 //============solution - 2================
 
@@ -64,4 +68,11 @@ user.greet();
 // };
 
 // user.greet();
+
+
+// Why it works?
+// 👉 arrow function ka this:
+// inherits from outer function
+// So:
+// this === user ✔
 

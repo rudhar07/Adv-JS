@@ -25,4 +25,56 @@
 
 //============solution================
 
+const timer = {
+    name: "Timer",
+    start: function () {
+        setTimeout(() => {
+            console.log(this.name); // 🔥 lexical this
+        }, 100);
+    }
+};
 
+timer.start();
+
+// 🧠 Why it works?
+// 👉 arrow function:
+// this = parent scope (start method)
+// So:
+// this === timer ✔
+
+
+//============solution - 2================
+
+// const timer = {
+//     name: "Timer",
+//     start: function () {
+//         setTimeout(function () {
+//             console.log(this.name);
+//         }.bind(this), 100); // 🔥 bind
+//     }
+// };
+
+// timer.start();
+
+
+// 🧠 Why?
+// bind(this) → permanently fixes this
+
+
+//============solution - 3================
+
+// const timer = {
+//     name: "Timer",
+//     start: function () {
+//         const self = this;
+
+//         setTimeout(function () {
+//             console.log(self.name); // 🔥 closure
+//         }, 100);
+//     }
+// };
+
+// timer.start();
+
+
+// old but works
