@@ -47,3 +47,13 @@ async function retryWithBackoff(fn, retries, delay) {
         }
     }
 }
+
+
+
+// 🧠 Memory Trick
+// “Try → Catch → Wait → Double → Repeat”
+// (Stop immediately if success)
+
+// ⚡ One-liner Explanation
+
+// “Attempt the async function, and on failure retry with exponentially increasing delays until success or retries are exhausted.”

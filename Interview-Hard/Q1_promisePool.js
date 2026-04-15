@@ -72,3 +72,15 @@ function promisePool(tasks, limit) {
     });
 }
 
+
+
+// 🧠 Memory Trick
+// “Queue → Limit → Fill → Finish → Refill”
+// Queue = tasks
+// Limit = max running
+// Fill slots → when one finishes → refill
+
+
+// ⚡ One-liner Explanation
+
+// “Run tasks up to a concurrency limit, start a new one whenever one finishes, and store results in original order.”
